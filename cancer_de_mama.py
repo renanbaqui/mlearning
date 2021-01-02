@@ -22,16 +22,16 @@ breast.keys()
 
 print(breast['DESCR'][:1150] + '\n...')
 
-breast['target_names'] #tipos de diagnostico
+breast['target_names'] #tipos de diagnostico (classes)
 
 breast['feature_names'] #descrição dos atributos
 
 print(breast['data'].shape)
-breast['data'][:3] #contém os atributos das cinco primeiras pacientes
+breast['data'][:5] #contém os atributos das cinco primeiras pacientes
 
-#um vetor numpy que contém valores de 0 ou 1. Cada um tipo de diagnóstico. 0 para maligno, 1 para benigno
-breast['target']
+breast['target'] #um vetor numpy que contém valores de 0 ou 1. Cada um tipo de diagnóstico: 0 para maligno, 1 para benigno
 
+#divisão em subconjuntos de treino e teste
 X_train, X_test, y_train, y_test = train_test_split(breast['data'], breast['target'], random_state = 0)
 
 print(X_train.shape)
