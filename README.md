@@ -2,9 +2,9 @@
 
 ## Trabalho de Graduação 
 
-- IA - Criação e manipulação de modelos de classificação para utilização em datasets
+- IA - Criação e manipulação de modelos de classificação (k-nearest neighbors e decision tree) para utilização em datasets
 
-> Testado no Google Colab 
+> Criado no Google Colab 
 
 Scatter plot parcial do dataset breast_cancer:
 
