@@ -27,16 +27,17 @@ breast['target_names'] #tipos de diagnostico (classes)
 breast['feature_names'] #descrição dos atributos
 
 print(breast['data'].shape)
-breast['data'][:5] #contém os atributos das cinco primeiras pacientes
+breast['data'][:5] #contém todos os atributos das cinco primeiras pacientes
 
 breast['target'] #um vetor numpy que contém valores de 0 ou 1. Cada um tipo de diagnóstico: 0 para maligno, 1 para benigno
 
 #divisão em subconjuntos de treino e teste
-X_train, X_test, y_train, y_test = train_test_split(breast['data'], breast['target'], random_state = 0)
+X_train, X_test, y_train, y_test = train_test_split(breast['data'], breast['target'], random_state = 0) 
 
 print(X_train.shape)
 print(X_test.shape)
 
+#plot do scatter
 fig, ax = plt.subplots(3, 3, figsize=(15,15))
 
 for i in range(3):
@@ -61,7 +62,7 @@ breast.target[[10, 50, 200]] #diagnóstico (target) das pacientes 10, 50 e 200
 print(breast['data'].shape)
 breast['data'][200] #contém os atributos da paciente 200, que tem o diagnóstico benigno (1)
 
-#testando o modelo
+#testando o modelo com um array previamente conhecido
 X_new = np.array([[1.223e+01, 1.956e+01, 7.854e+01, 4.610e+02, 9.586e-02, 8.087e-02,
        4.187e-02, 4.107e-02, 1.979e-01, 6.013e-02, 3.534e-01, 1.326e+00,
        2.308e+00, 2.724e+01, 7.514e-03, 1.779e-02, 1.401e-02, 1.140e-02,
@@ -69,7 +70,7 @@ X_new = np.array([[1.223e+01, 1.956e+01, 7.854e+01, 4.610e+02, 9.586e-02, 8.087e
        1.429e-01, 2.042e-01, 1.377e-01, 1.080e-01, 2.668e-01, 8.174e-02]])
 X_new.shape
 
-prediction = knn.predict(X_new) #a previsão é de que a paciente tenha o diagnóstico benigno (1), que está correto
+prediction = knn.predict(X_new) #a previsão é de que a paciente tenha o diagnóstico benigno (1), que o modelo está correto
 prediction
 
 breast['target_names'][prediction]
@@ -77,7 +78,7 @@ breast['target_names'][prediction]
 #acurácia do modelo
 knn.score(X_test, y_test)
 
-#criando o modelo de classificação árvore de decisão
+#criando o modelo de classificação árvore de decisão (decision tree)
 from sklearn.datasets import load_breast_cancer
 from sklearn import tree
 X, y = load_breast_cancer(return_X_y=True)
